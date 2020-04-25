@@ -39,3 +39,26 @@ To start new nodes (with one RabbitMQ instance):
 ... and so on.
 
 ### Test
+
+The API is located at ```POST /api/v1/datasphere``` (for example http://localhost:3001/api/v1/datasphere). 
+
+Call the API using any sample payload to broadcast to all peers. For example: 
+
+```javascript
+{
+    "data" : "Hello world from The Earth Datasphere!"
+}
+```
+
+To check if data has been broadcasted open the RabbitMQ console
+
+```
+http://localhost:15672/
+user: guest
+pwd: guest
+```
+
+Click Queues. 
+
+You should find two queues for each server TD.DATASTORE.SERVER.# (data stored locally to be used by local applications) and TD.BROADCAST.SERVER.# (should be empty as it is used only for broadcasting data to peers) with the data sent via API. Feel free to inspect the queues. 
+
