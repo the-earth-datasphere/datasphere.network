@@ -7,10 +7,10 @@ The Earth Datasphere makes it easy to share data across a network of peers, ever
 To run the project you will need to clone this repository and install RabbitMQ.
 
 ### Clone repository
-git clone https://github.com/the-earth-datasphere/datasphere.network.git
+```git clone https://github.com/the-earth-datasphere/datasphere.network.git```
 
 ### RabbitMQ
-docker pull rabbitmq
+```docker pull rabbitmq```
 
 ## Start 
 
