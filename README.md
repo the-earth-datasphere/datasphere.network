@@ -9,6 +9,11 @@ To run the project you will need to clone this repository and install RabbitMQ.
 ### Clone repository
 ```git clone https://github.com/the-earth-datasphere/datasphere.network.git```
 
+### Install dependencies
+In the project directory
+
+```npm install```
+
 ### RabbitMQ
 ```docker pull rabbitmq```
 
