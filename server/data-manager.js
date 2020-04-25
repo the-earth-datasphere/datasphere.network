@@ -2,6 +2,7 @@ const constants = require('../lib/constants');
 const Log = require('../lib/logger');
 const Broker = require('./broker');
 const mq = new Broker(constants.MQ_HOST);
+const Data = require('./data');
 
 class DataManager {
     constructor() {
@@ -21,7 +22,11 @@ class DataManager {
 
     pushToQueue(data, queue) {
         try {
-            mq.push(this.dataToJSON(data),  queue);
+            if(Data.validateDataObject(data)) {
+                mq.push(this.dataToJSON(data),  queue);
+            } else {
+                throw err;
+            }
         } catch(err) {
             Log.error(`data.manager.push.queue.error ${queue} ${err}`);   
             Log.error(`data.manager.push.queue.error.data ${queue} ${JSON.stringify(data)}`); 

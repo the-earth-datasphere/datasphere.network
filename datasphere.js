@@ -8,7 +8,7 @@
 // Logs
 const Log = require('./lib/logger');
 
-Log.info('DataSphere is Alive!');
+Log.info('The Earth DataSphere is Live!');
 
 // Env variables
 const dotenv = require('dotenv');
