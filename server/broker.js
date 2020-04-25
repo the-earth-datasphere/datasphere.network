@@ -8,15 +8,15 @@ class Broker {
     }
 
     pull (queue) {
-        Log.info(`p2p.message.broker.pull ${queue}`);
+        Log.info(`p2p.broker.pull ${queue}`);
         amqp.connect(this.host, (error0, connection) => {
             if (error0) {
-                Log.error(`p2p.message.broker.pull.connect.error ${error0}`);
+                Log.error(`p2p.broker.pull.connect.error ${error0}`);
                 throw error0;
             }
             connection.createChannel((error1, channel) => {
                 if (error1) {
-                    Log.error(`p2p.message.broker.pull.connect.channel.error ${error1}`);
+                    Log.error(`p2p.broker.pull.connect.channel.error ${error1}`);
                     throw error1;
                 }
 
@@ -24,11 +24,11 @@ class Broker {
                     durable: false
                 });
 
-                Log.info(`p2p.message.broker.pull.connect.channel.listen.queue ${queue}`);
+                Log.info(`p2p.broker.pull.connect.channel.listen.queue ${queue}`);
 
                 channel.consume(queue, (message) => {
-                    Log.info(`p2p.message.broker.pull.connect.channel.consume.queue ${queue}`);
-                    Log.info(`p2p.message.broker.pull.connect.channel.consume.queue.message ${message.content.toString()}`);
+                    Log.info(`p2p.broker.pull.connect.channel.consume.queue ${queue}`);
+                    Log.info(`p2p.broker.pull.connect.channel.consume.queue.message ${message.content.toString()}`);
                 }, {
                     noAck: true
                 });
@@ -42,12 +42,12 @@ class Broker {
         Log.info(`message.broker.push ${queue}`);
         amqp.connect(this.host, (error0, connection) => {
             if (error0) {
-                Log.error(`p2p.message.broker.push.connect.error ${error0}`);
+                Log.error(`p2p.broker.push.connect.error ${error0}`);
                 throw error0;
             }
             connection.createChannel((error1, channel) => {
                 if (error1) {
-                    Log.error(`p2p.message.broker.push.connect.channel.error ${error1}`);
+                    Log.error(`p2p.broker.push.connect.channel.error ${error1}`);
                     throw error1;
                 }
 
@@ -56,8 +56,8 @@ class Broker {
                 });
                 
                 channel.sendToQueue(queue, Buffer.from(JSON.stringify(message)));
-                Log.info(`p2p.message.broker.push.connect.channel.send.queue ${queue}`);
-                Log.info(`p2p.message.broker.push.connect.channel.send.queue.message ${message}`);
+                Log.info(`p2p.broker.push.connect.channel.send.queue ${queue}`);
+                Log.info(`p2p.broker.push.connect.channel.send.queue.message ${message}`);
             });
 
             setTimeout(async () => {

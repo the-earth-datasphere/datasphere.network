@@ -22,6 +22,10 @@ app.use(express.json());
 
 const constants = require('./lib/constants');
 
+// P2P Server
+const P2pServer = require('./server/p2p');
+const p2p = new P2pServer();
+
 /* =====================================================================
     Datasphere API
 =======================================================================*/
@@ -41,3 +45,9 @@ process.on('unhandledRejection', (err, promise) => {
     // Close server and exit process
     server.close(() => process.exit(1));
 });
+
+/* ===================================================================================
+    DataSphere P2P Server
+=====================================================================================*/
+
+p2p.listen(constants.P2P_PORT);
