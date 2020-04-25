@@ -25,7 +25,7 @@ You can start one or multiple RabbitMQ instances but remember to change the port
 #### Example for ports 5673 and 15673
 ```docker run -it --rm --name rabbitmq2 -p 5673:5672 -p 15673:15672 rabbitmq:3-management```
 
-#### The Earth Datasphere 
+### The Earth Datasphere 
 After you've started Rabbit MQ, the default command for starting a Datasphere node (P2P port 5001 and HTTP port 3001) is:
 ```npm run dev```
 
@@ -38,4 +38,4 @@ To start new nodes (with one RabbitMQ instance):
 
 ... and so on.
 
-## Test
+### Test
