@@ -33,6 +33,7 @@ After you've started Rabbit MQ, the default command for starting a Datasphere no
 To start new nodes (with one RabbitMQ instance): 
 
 ```set P2P_PORT=5002&&set HTTP_PORT=3002&&set PEERS=ws://localhost:5001&&set DATASTORE_QUEUE=TD.DATASTORE&&set BROADCAST_QUEUE=TD.BROADCAST&&set SERVER_NAME=SERVER.2&& npm run dev```
+
 ```set P2P_PORT=5003&&set HTTP_PORT=3003&&set PEERS=ws://localhost:5001,ws://localhost:5002&&set DATASTORE_QUEUE=TD.DATASTORE&&set BROADCAST_QUEUE=TD.BROADCAST&&set SERVER_NAME=SERVER.3&& npm run dev```
 
 ... and so on.
